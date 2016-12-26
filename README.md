@@ -1,4 +1,7 @@
 ----
+
+[![Build Status](https://codeship.com/projects/8a745f30-adbb-0134-8527-36e7a5ec89be/status?branch=master)](https://app.codeship.com/projects/192558)
+
 # vuejs starter kit
 using:
 * webpack
