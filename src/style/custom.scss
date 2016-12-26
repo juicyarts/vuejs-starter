@@ -1,0 +1,88 @@
+// Mixins
+@mixin navbar-active-border($thickness, $style, $color, $direction: 'none') {
+  @if $direction != 'none' {
+    border-#{$direction}: $thickness $style $color;
+  } else {
+    border: $thickness $style $color;
+  }
+}
+
+// Navigation
+.navbar-dark .navbar-toggler{
+  background-image: none;
+}
+
+.navbar {
+  min-height: 60px;
+
+  .navbar-brand {
+    img {
+      display: block;
+      width: 160px;
+    }
+  }
+
+  .nav-item {
+    a {
+      @include navbar-active-border(4px, solid, $gray-dark, bottom);
+    }
+
+    .active,
+    &:hover a {
+      @include navbar-active-border(4px, solid, $brand-secondary, bottom);
+    }
+
+    .nav-link {
+      transition: color .3s linear, border .3s linear;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-brand {
+    display: block;
+    float: none;
+  }
+
+  .navbar {
+    .nav-item {
+      a {
+        @include navbar-active-border(4px, solid, $gray-dark, left);
+        border: 0;
+        padding-left: $spacer;
+      }
+
+      a.active,
+      &:hover a {
+        @include navbar-active-border(4px, solid, $brand-secondary, left);
+        border: 0;
+      }
+    }
+  }
+}
+
+// Transitions
+.fade-enter-active,
+.component-fade-enter-active,
+.fade-leave-active,
+.component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+
+.fade-enter,
+.fade-leave-active, 
+.component-fade-enter,
+.component-fade-leave-active {
+  opacity: 0;
+}
+
+
+// General
+html, body{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#vue-view{
+  width: 100%;
+}

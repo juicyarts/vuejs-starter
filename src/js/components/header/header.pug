@@ -1,0 +1,10 @@
+nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+	button.navbar-toggler.float-xs-right.float-sm-right.float-md-right.hidden-md-up(type='button' data-toggle='collapse' data-target='#navbar')
+		i.fa.fa-bars
+	a.navbar-brand(href='#')
+		img(src='src/gfx/brand.svg')
+	#navbar.collapse.navbar-toggleable-sm
+		.navbar-divider.hidden-sm-down
+		ul.nav.navbar-nav
+			li.nav-item.text-uppercase(v-for='navItem in navItems' v-on:click='toggleCollapse()')
+				router-link(:to='navItem.href' active-class='active' class='nav-link') {{navItem.name}}
